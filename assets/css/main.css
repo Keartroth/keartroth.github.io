@@ -1841,7 +1841,7 @@
 		text-align: left;
 	}
 
-	#experience p {
+	#experience > p {
 		color: white;
 	}
 
@@ -2466,7 +2466,7 @@
 			display: none;
 		}
 
-		.techIcon {
+		img.techIcon {
 			width: 6em;
 			margin: 2rem;
 		}
