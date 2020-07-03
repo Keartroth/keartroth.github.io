@@ -59,6 +59,10 @@
 
 /* Containers */
 
+	#techIconContainer {
+		padding: 5px;
+	}
+
 	.container {
 		margin-left: auto;
 		margin-right: auto;
@@ -1833,6 +1837,14 @@
 		border-bottom-color: rgba(0, 0, 0, 0.1);
 	}
 
+	.projectSynopsis {
+		text-align: left;
+	}
+
+	#experience p {
+		color: white;
+	}
+
 /* Box */
 
 	.box {
@@ -2452,6 +2464,11 @@
 
 		.icon > .label {
 			display: none;
+		}
+
+		.techIcon {
+			width: 6em;
+			margin: 2rem;
 		}
 
 /* Image */
@@ -3865,7 +3882,7 @@
 /* Footer */
 
 	#footer {
-		padding: 6em 2em 4em 2em;
+		padding: 1rem 1rem 0rem 1rem;
 	}
 
 		#footer > .inner {
