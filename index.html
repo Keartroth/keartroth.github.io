@@ -11,6 +11,53 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function () {
+			emailjs.init("user_1lhMcPcYLXSYYIlvQBGcC");
+		})();
+	</script>
+	<script type="text/javascript">
+		window.onload = function () {
+			document.getElementById('contact-form').addEventListener('submit', function (event) {
+				event.preventDefault();
+				// build the message parameters object
+				const messageParams = {
+					from_email: document.getElementById('email').value,
+					from_name: document.getElementById('name').value,
+					message_category: document.getElementById('category').value,
+					message_body: document.getElementById('message').value,
+					contact_number: Math.random() * 100000 | 0
+				}
+				// get message priority
+				if (document.getElementById('priority-low').checked == true) {
+					messageParams.message_priority = "Low";
+				} else if (document.getElementById('priority-normal').checked == true) {
+					messageParams.message_priority = "Normal";
+				} else if (document.getElementById('priority-high').checked == true) {
+					messageParams.message_priority = "High";
+				}
+				// build function to send the form
+				const sendForm = () => {
+					emailjs.send('keartroth_contact_service', 'personal_site_contact_form', messageParams)
+						.then((response) => {
+							console.log('SUCCESS!', response.status, response.text)
+						}, (error) => {
+							console.log('FAILED...', error)
+						});
+				}
+				// send the form with or without a copy
+				if (document.getElementById('copy').checked == true) {
+					messageParams.optional_cc = messageParams.from_email,
+						sendForm();
+					document.getElementById('contact-form').reset();
+				} else {
+					sendForm();
+					document.getElementById('contact-form').reset();
+				}
+			});
+		}
+	</script>
 </head>
 
 <body>
@@ -111,8 +158,8 @@
 						<a href="#portfolio" class="button">Personal & Group Projects</a>
 					</div>
 					<div class="col col1 first">
-						<div class="image square fit">
-							<a href="https://keartroth.github.io/MichaelCarrollResume.pdf" class="link"
+						<div id="resumeLink" class="image square fit">
+							<a href="https://keartroth.github.io/assets/MichaelCarrollResume.pdf" class="link"
 								target="_blank"><img src="images/ResumePhoto.png"
 									alt="photo of and link to resume" /></a>
 						</div>
@@ -175,7 +222,7 @@
 					<img title="SQL Server" class="techIcon" src="images/microsoftSQLServer.svg"
 						alt="SQL Server icon" />
 					<img title="SQL" class="techIcon" src="images/SQL.webp" alt="SQL icon" />
-					<img title=".Net Core" class="techIcon" src="images/dotNetCore.png" alt="Dot Net Core icon" />
+					<img title=".Net Core" class="techIcon" src="images/dotNetCore.svg" alt="Dot Net Core icon" />
 					<img title="Git" class="techIcon" src="images/git.svg" alt="Git icon" />
 					<img title="GitHub" class="techIcon" src="images/gitHub.svg" alt="GitHub icon" />
 					<img title="Visual Studio Code" class="techIcon" src="images/vsCode.svg"
@@ -183,6 +230,10 @@
 					<img title="Visual Studio 2019" class="techIcon" src="images/visualStudio.svg"
 						alt="Visual Studio 2019 icon" />
 					<img title="Bootstrap" class="techIcon" src="images/bootstrap.png" alt="Bootstrap icon" />
+					<img title="Postman" class="techIcon" src="images/postman.svg" alt="Postman icon" />
+					<img title="nivo" class="techIcon" src="images/nivo.png" alt="nivo icon" />
+					<img title="EmailJS" class="techIcon" src="images/emailJS.png" alt="EmailJS icon" />
+					<img title="date-fns" class="techIcon" src="images/datefns.png" alt="date-fns icon" />
 				</div>
 			</div>
 		</section>
@@ -192,11 +243,11 @@
 			<div class="inner">
 				<header class="align-center">
 					<h2>Contact Me</h2>
-					<p>Send me a message or check out my other platforms</p>
+					<p>Send me a message or check me out on other platforms</p>
 				</header>
 				<div class="flex flex-2">
 					<div class="col align-center">
-						<form method="post" action="#">
+						<form id="contact-form" action="submit">
 							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
 									<input type="text" name="name" id="name" value="" placeholder="Name" required />
@@ -218,20 +269,20 @@
 								</div>
 								<!-- Break -->
 								<div class="4u 12u$(small)">
-									<input type="radio" id="priority-low" name="priority" checked>
+									<input type="radio" id="priority-low" name="message_priority" checked>
 									<label for="priority-low">Low Priority</label>
 								</div>
 								<div class="4u 12u$(small)">
-									<input type="radio" id="priority-normal" name="priority">
+									<input type="radio" id="priority-normal" name="message_priority">
 									<label for="priority-normal">Normal Priority</label>
 								</div>
 								<div class="4u$ 12u$(small)">
-									<input type="radio" id="priority-high" name="priority">
+									<input type="radio" id="priority-high" name="message_priority">
 									<label for="priority-high">High Priority</label>
 								</div>
 								<!-- Break -->
 								<div class="6u 12u$(small)">
-									<input type="checkbox" id="copy" name="copy">
+									<input type="checkbox" id="copy" name="optional_cc">
 									<label for="copy">Email me a copy of this message</label>
 								</div>
 								<div class="6u$ 12u$(small)">
@@ -255,16 +306,18 @@
 					</div>
 					<div class="col align-center">
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/mecarrolljr/" class="icon fa-linkedin"
+							<li><a href="https://www.linkedin.com/in/mecarrolljr/" class="icon style3 fa-linkedin"
 									target="_blank"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/Keartroth" class="icon fa-github" target="_blank"><span
-										class="label">GitHub</span></a>
+							<li><a href="https://github.com/Keartroth" class="icon style3 fa-github"
+									target="_blank"><span class="label">GitHub</span></a>
 							</li>
-							<li><a href="mailto:mecarrolljr@tutanota.com" class="icon fa-envelope-open"><span
+							<li><a href="mailto:mecarrolljr@tutanota.com" class="icon style3 fa-envelope"><span
 										class="label">Email</span></a></li>
-							<li><a href="https://keartroth.github.io/MichaelCarrollResume.pdf" class="icon fa-file"
-									target="_blank"><span class="label">Resume</span></a></li>
+							<li><a href="https://keartroth.github.io/assets/MichaelCarrollResume.pdf"
+									class="icon style3 fa-file" target="_blank"><span class="label">Resume</span></a>
+							</li>
 						</ul>
+						<h1 class="myPortfolio"></h1>
 					</div>
 				</div>
 			</div>
@@ -275,8 +328,8 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="copyright">
-			<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
-					href="https://unsplash.com">Unsplash</a>.</p>
+			<p>&copy; Michael Carroll. All rights reserved. Design: <a href="https://templated.co"
+					target="_blank">TEMPLATED.</p>
 		</div>
 	</footer>
 

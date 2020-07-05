@@ -1841,7 +1841,7 @@
 		text-align: left;
 	}
 
-	#experience > p {
+	#experience p {
 		color: white;
 	}
 
@@ -2471,6 +2471,15 @@
 			margin: 2rem;
 		}
 
+		.style3 {
+			background-color: rgb(220,220,220, 0.35);
+			border: solid 1px rgb(220,220,220, 0.75);
+			border-radius: 100%;
+			display: inline-block;
+			transition: all 0.2s ease;
+			width: 4em;
+		}
+
 /* Image */
 
 	.image {
@@ -2549,6 +2558,19 @@
 			height: 100%;
 		}
 
+	@media screen and (max-width: 736px) {
+		#resumeLink {
+			margin-top: 0;
+		}
+	}
+
+	@media screen and (max-width: 1680px) and (min-width: 980px)  {
+		#resumeLink {
+			margin-left: 25%;
+			margin-top: 50%;
+		}
+	}
+
 /* List */
 
 	ol {
@@ -2589,6 +2611,7 @@
 		ul.icons {
 			cursor: default;
 			list-style: none;
+			margin-top: 10%;
 			padding-left: 0;
 		}
 
@@ -3655,7 +3678,6 @@
 			right: 0;
 			text-align: right;
 			top: 0;
-			vertical-align: middle;
 			width: 7em;
 		}
 
@@ -3933,3 +3955,11 @@
 			}
 
 		}
+
+/* General */
+
+	.myPortfolio {
+		color: grey !important;
+		margin-top: 2rem;
+		opacity: 0;
+	}
