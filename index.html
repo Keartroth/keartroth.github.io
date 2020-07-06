@@ -17,47 +17,6 @@
 			emailjs.init("user_1lhMcPcYLXSYYIlvQBGcC");
 		})();
 	</script>
-	<script type="text/javascript">
-		window.onload = function () {
-			document.getElementById('contact-form').addEventListener('submit', function (event) {
-				event.preventDefault();
-				// build the message parameters object
-				const messageParams = {
-					from_email: document.getElementById('email').value,
-					from_name: document.getElementById('name').value,
-					message_category: document.getElementById('category').value,
-					message_body: document.getElementById('message').value,
-					contact_number: Math.random() * 100000 | 0
-				}
-				// get message priority
-				if (document.getElementById('priority-low').checked == true) {
-					messageParams.message_priority = "Low";
-				} else if (document.getElementById('priority-normal').checked == true) {
-					messageParams.message_priority = "Normal";
-				} else if (document.getElementById('priority-high').checked == true) {
-					messageParams.message_priority = "High";
-				}
-				// build function to send the form
-				const sendForm = () => {
-					emailjs.send('keartroth_contact_service', 'personal_site_contact_form', messageParams)
-						.then((response) => {
-							console.log('SUCCESS!', response.status, response.text)
-						}, (error) => {
-							console.log('FAILED...', error)
-						});
-				}
-				// send the form with or without a copy
-				if (document.getElementById('copy').checked == true) {
-					messageParams.optional_cc = messageParams.from_email,
-						sendForm();
-					document.getElementById('contact-form').reset();
-				} else {
-					sendForm();
-					document.getElementById('contact-form').reset();
-				}
-			});
-		}
-	</script>
 </head>
 
 <body>
@@ -176,7 +135,7 @@
 				</header>
 				<div class="flex flex-3">
 					<div class="col align-center">
-						<div class="image round fit">
+						<div class="image square fit">
 							<a href="https://github.com/Keartroth/It-Takes-A-Village" class="link" target="_blank"><img
 									src="images/ITAVHomeCrop.png" alt="It Takes a Village Screenshot" /></a>
 						</div>
@@ -185,7 +144,7 @@
 							underserved community member reshape his or her life.</p>
 					</div>
 					<div class="col align-center">
-						<div class="image round fit">
+						<div class="image square fit">
 							<a href="https://github.com/nss-day-cohort-39/nutshell-smaragdine-sugar-gliders"
 								class="link" target="_blank"><img src="images/Nutshell.jpg" alt="Nutshell Icon" /></a>
 						</div>
@@ -195,7 +154,7 @@
 						<a href="#tech" class="button">Technologies Used</a>
 					</div>
 					<div class="col align-center">
-						<div class="image round fit">
+						<div class="image square fit">
 							<a href="#portfolio" class="link" target="_blank"><img src="images/ITAVHomeCrop.png"
 									alt="It Takes a Village Screenshot" /></a>
 						</div>
@@ -307,17 +266,17 @@
 					<div class="col align-center">
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/mecarrolljr/" class="icon style3 fa-linkedin"
-									target="_blank"><span class="label">LinkedIn</span></a></li>
+									target="_blank"></a></li>
 							<li><a href="https://github.com/Keartroth" class="icon style3 fa-github"
-									target="_blank"><span class="label">GitHub</span></a>
+									target="_blank"></a>
 							</li>
-							<li><a href="mailto:mecarrolljr@tutanota.com" class="icon style3 fa-envelope"><span
-										class="label">Email</span></a></li>
+							<li><a href="mailto:mecarrolljr@tutanota.com" class="icon style3 fa-envelope"></a></li>
+							<li><a href="tel:+16155789200" class="icon style3 fa-mobile"></a></li>
 							<li><a href="https://keartroth.github.io/assets/MichaelCarrollResume.pdf"
-									class="icon style3 fa-file" target="_blank"><span class="label">Resume</span></a>
+									class="icon style3 fa-file" target="_blank"></a>
 							</li>
 						</ul>
-						<h1 class="myPortfolio"></h1>
+						<h1 class="myContactInfo"></h1>
 					</div>
 				</div>
 			</div>

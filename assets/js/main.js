@@ -4,21 +4,61 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-const linkDescription = document.querySelector('.myPortfolio');
+const linkDescription = document.querySelector('.myContactInfo');
 const container = document.querySelector('body');
+const contactContainer = document.getElementById('contact-form');
 
-container.addEventListener('mouseover', (e) => {
-	if (e.target.classList.contains('fa-youtube')) { linkDescription.innerHTML = 'YouTube playlist of my projects'; linkDescription.style.opacity = '1' }
+container.addEventListener('mouseover', e => {
+	if (e.target.classList.contains('fa-youtube')) { linkDescription.innerHTML = 'YouTube playlist of my capstone projects'; linkDescription.style.opacity = '1' }
 	else if (e.target.classList.contains('fa-github')) { linkDescription.innerHTML = 'my GitHub overview'; linkDescription.style.opacity = '1' }
 	else if (e.target.classList.contains('fa-file')) { linkDescription.innerHTML = 'view & download my resume'; linkDescription.style.opacity = '1' }
 	else if (e.target.classList.contains('fa-linkedin')) { linkDescription.innerHTML = 'my LinkedIn profile'; linkDescription.style.opacity = '1' }
 	else if (e.target.classList.contains('fa-envelope')) { linkDescription.innerHTML = 'send me an email'; linkDescription.style.opacity = '1' }
+	else if (e.target.classList.contains('fa-mobile')) { linkDescription.innerHTML = 'give me a call | 615.578.9200'; linkDescription.style.opacity = '1' }
 });
 
-container.addEventListener('mouseout', (event) => {
-	if (event.target.classList.contains('icon')) {
+container.addEventListener('mouseout', e => {
+	if (e.target.classList.contains('icon')) {
 		linkDescription.innerHTML = ''; linkDescription.style.opacity = '0'
-	}
+	};
+});
+
+contactContainer.addEventListener('submit', e => {
+	e.preventDefault();
+	// build the message parameters object
+	const messageParams = {
+		from_email: document.getElementById('email').value,
+		from_name: document.getElementById('name').value,
+		message_category: document.getElementById('category').value,
+		message_body: document.getElementById('message').value,
+		contact_number: Math.random() * 100000 | 0
+	};
+	// get message priority
+	if (document.getElementById('priority-low').checked == true) {
+		messageParams.message_priority = "Low";
+	} else if (document.getElementById('priority-normal').checked == true) {
+		messageParams.message_priority = "Normal";
+	} else if (document.getElementById('priority-high').checked == true) {
+		messageParams.message_priority = "High";
+	};
+	// build function to send the form
+	const sendForm = () => {
+		emailjs.send('keartroth_contact_service', 'personal_site_contact_form', messageParams)
+			.then((response) => {
+				console.log('SUCCESS!', response.status, response.text)
+			}, (error) => {
+				console.log('FAILED...', error)
+			});
+	};
+	// send the form with or without a copy to the user
+	if (document.getElementById('copy').checked == true) {
+		messageParams.optional_cc = messageParams.from_email;
+		sendForm();
+		document.getElementById('contact-form').reset();
+	} else {
+		sendForm();
+		document.getElementById('contact-form').reset();
+	};
 });
 
 (function ($) {
