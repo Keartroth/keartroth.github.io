@@ -43,7 +43,7 @@
 		<div class="inner">
 			<header>
 				<h1>Hello there! I'm Michael Carroll.</h1>
-				<p>I am a full-stack junior software developer in Nashville, TN.</p>
+				<p>I am a full-stack software developer in Nashville, TN.</p>
 			</header>
 			<a href="#about" class="button big scrolly">About Me</a>
 		</div>
@@ -64,23 +64,26 @@
 					</div>
 					<div class="col col2">
 						<h3>About Me</h3>
-						<p>I am a Nashville native who has recently moved back home. I have spent most of my
+						<p class="blackText">I am a Nashville native who has recently moved back home. I have spent most
+							of my
 							professional career working in the service industry. While I love the fast pace, and
 							camaraderie it instills, I began looking into programming from a desire to create new
 							avenues of positive change in my community. I came to love not only the idea of what I could
 							do with the ability to connect people but also programming itself after babbling into
 							JavaScript. Now, I can’t imagine another career path for myself.
 						</p>
-						<p>While I have always been interested in technology, like many of my generation my initial
+						<p class="blackText">While I have always been interested in technology, like many of my
+							generation my initial
 							interests rarely strayed beyond the value outside of entertainment or personal comfort. It
 							wasn't until the last few years that my interests deviated from looking into code to
 							modify games and instead viewed coding as a vehicle to better myself and my community. My
 							initial tentative steps into software development began when I enrolled in a short, in
 							person foundations program at Nashville Software School in the winter of 2019. From the
 							first day of covering JavaScript I was enamored with both the aspect of what could be
-							accomplished with software development and the joy of working with code. I am currently
-							enrolled in a full-time six month software development bootcamp at Nashville Software
-							School.</p>
+							accomplished with software development and the joy of working with code. As of winter 2020,
+							I have recently completed a full-time, six month software development bootcamp at Nashville
+							Software School, and I am currently working as a teaching assistant at Nashville Software
+							School teaching the same client side and server side technologies I recently learned.</p>
 						<a href="#experience" class="button">Experience</a>
 					</div>
 				</div>
@@ -107,12 +110,10 @@
 							culture regardless of an individual’s position in the team. My employment with Publix
 							focused on the following skill set: teamwork, team building, team management, training,
 							customer service, merchandising, and building a results oriented work environment.</p>
-						<p>Currently, I am enrolled in an intensive full-time six month software development bootcamp
-							with concerted learning in both individual and team projects. This course began as an in
-							person bootcamp, and has since moved to remote work with the Covid-19 pandemic. Group
-							projects have focused on working in teams using the SCRUM methodology in pair-programming
-							sessions using VS Code and VS Live Share. The tech stack includes: C#/.NET, React.js,
-							JavaScript, HTML5, CSS3, Flexbox, Git, GitHub, and SQL fundamentals</p>
+						<p>Currently, I am working remotely as a teaching assistant in an intensive full-time six month
+							software development bootcamp with concerted learning in both individual and team projects.
+							The tech stack includes: C#/.NET, React.js, JavaScript, HTML5, CSS3, Flexbox, Git, GitHub,
+							and SQL fundamentals</p>
 						<p>Click on the image to the right to view and download my resume.</p>
 						<a href="#portfolio" class="button">Personal & Group Projects</a>
 					</div>
@@ -145,24 +146,26 @@
 					</div>
 					<div class="col align-center">
 						<div class="image square fit">
+							<a href="https://github.com/Keartroth/News-Real" class="link" target="_blank"><img
+									src="images/ITAVHomeCrop.png" alt="News Real Screenshot" /></a>
+						</div>
+						<p class="projectSynopsis">News Real is a full-stack application writen in React for the client
+							side and C# for the server side, that allows users to keep track
+							of and analyze the online news they consume.</p>
+					</div>
+					<div class="col align-center">
+						<div class="image square fit">
 							<a href="https://github.com/nss-day-cohort-39/nutshell-smaragdine-sugar-gliders"
-								class="link" target="_blank"><img src="images/Nutshell.jpg" alt="Nutshell Icon" /></a>
+								class="link" target="_blank"><img src="images/Nutshell.png" alt="Nutshell Icon" /></a>
 						</div>
 						<p class="projectSynopsis">Nutshell is a group project that was built with JavaScript in a
 							remote work environment. Coded mostly in VS Code Liveshare, this application resembles a
 							social media platform that allows users to connect with others.</p>
-						<a href="#tech" class="button">Technologies Used</a>
-					</div>
-					<div class="col align-center">
-						<div class="image square fit">
-							<a href="#portfolio" class="link" target="_blank"><img src="images/ITAVHomeCrop.png"
-									alt="It Takes a Village Screenshot" /></a>
-						</div>
-						<p class="projectSynopsis">This is a placeholder for my server side capstone project. It will be
-							available to view in
-							early August.</p>
 					</div>
 				</div>
+			</div>
+			<div id="button-container">
+				<a href="#tech" class="button" id="techUsedButton">Technologies Used</a>
 			</div>
 		</section>
 
@@ -188,11 +191,8 @@
 						alt="Visual Studio Code icon" />
 					<img title="Visual Studio 2019" class="techIcon" src="images/visualStudio.svg"
 						alt="Visual Studio 2019 icon" />
-					<img title="Bootstrap" class="techIcon" src="images/bootstrap.png" alt="Bootstrap icon" />
+					<img title="Postgre" class="techIcon" src="images/postgreSqlElephant.svg" alt="Postgre icon" />
 					<img title="Postman" class="techIcon" src="images/postman.svg" alt="Postman icon" />
-					<img title="nivo" class="techIcon" src="images/nivo.png" alt="nivo icon" />
-					<img title="EmailJS" class="techIcon" src="images/emailJS.png" alt="EmailJS icon" />
-					<img title="date-fns" class="techIcon" src="images/datefns.png" alt="date-fns icon" />
 				</div>
 			</div>
 		</section>
@@ -200,85 +200,83 @@
 		<!-- Contact Section -->
 		<section id="contact" class="wrapper style1">
 			<div class="inner">
-				<header class="align-center">
+				<header id="contact__header" class="align-center">
 					<h2>Contact Me</h2>
 					<p>Send me a message or check me out on other platforms</p>
 				</header>
-				<div class="flex flex-2">
-					<div class="col align-center">
-						<form id="contact-form" action="submit">
-							<div class="row uniform">
-								<div class="6u 12u$(xsmall)">
-									<input type="text" name="name" id="name" value="" placeholder="Name" required />
-								</div>
-								<div class="6u$ 12u$(xsmall)">
-									<input type="email" name="email" id="email" value="" placeholder="Email" required />
-								</div>
-								<!-- Break -->
-								<div class="12u$">
-									<div class="select-wrapper">
-										<select name="category" id="category" required>
-											<option value="">- Category -</option>
-											<option value="Personal">Personal</option>
-											<option value="Volunteer">Volunteer</option>
-											<option value="Work">Work</option>
-											<option value="Feedback">Feedback</option>
-										</select>
-									</div>
-								</div>
-								<!-- Break -->
-								<div class="4u 12u$(small)">
-									<input type="radio" id="priority-low" name="message_priority" checked>
-									<label for="priority-low">Low Priority</label>
-								</div>
-								<div class="4u 12u$(small)">
-									<input type="radio" id="priority-normal" name="message_priority">
-									<label for="priority-normal">Normal Priority</label>
-								</div>
-								<div class="4u$ 12u$(small)">
-									<input type="radio" id="priority-high" name="message_priority">
-									<label for="priority-high">High Priority</label>
-								</div>
-								<!-- Break -->
-								<div class="6u 12u$(small)">
-									<input type="checkbox" id="copy" name="optional_cc">
-									<label for="copy">Email me a copy of this message</label>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<input type="checkbox" id="human" name="human" required>
-									<label for="human">I am a human and not a robot</label>
-								</div>
-								<!-- Break -->
-								<div class="12u$">
-									<textarea name="message" id="message" placeholder="Enter your message" rows="6"
-										required></textarea>
-								</div>
-								<!-- Break -->
-								<div class="12u$">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" /></li>
-										<li><input type="reset" value="Reset" class="alt" /></li>
-									</ul>
+				<div class="col align-center">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/mecarrolljr/" class="icon style3 fa-linkedin"
+								target="_blank"></a></li>
+						<li><a href="https://github.com/Keartroth" class="icon style3 fa-github" target="_blank"></a>
+						</li>
+						<li><a href="mailto:mecarrolljr@tutanota.com" class="icon style3 fa-envelope"></a></li>
+						<li><a href="tel:+16155789200" class="icon style3 fa-mobile"></a></li>
+						<li><a href="https://keartroth.github.io/assets/MichaelCarrollResume.pdf"
+								class="icon style3 fa-file" target="_blank"></a>
+						</li>
+					</ul>
+					<h1 class="myContactInfo"></h1>
+				</div>
+				<div class="col align-center">
+					<form id="contact-form" action="submit">
+						<div class="row uniform">
+							<div class="6u 12u$(xsmall)">
+								<input type="text" name="name" id="name" value="" placeholder="Name" required />
+							</div>
+							<div class="6u$ 12u$(xsmall)">
+								<input type="email" name="email" id="email" value="" placeholder="Email" required />
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<div class="select-wrapper">
+									<select name="category" id="category" required>
+										<option value="">- Category -</option>
+										<option value="Personal">Personal</option>
+										<option value="Volunteer">Volunteer</option>
+										<option value="Work">Work</option>
+										<option value="Feedback">Feedback</option>
+									</select>
 								</div>
 							</div>
-						</form>
-					</div>
-					<div class="col align-center">
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/mecarrolljr/" class="icon style3 fa-linkedin"
-									target="_blank"></a></li>
-							<li><a href="https://github.com/Keartroth" class="icon style3 fa-github"
-									target="_blank"></a>
-							</li>
-							<li><a href="mailto:mecarrolljr@tutanota.com" class="icon style3 fa-envelope"></a></li>
-							<li><a href="tel:+16155789200" class="icon style3 fa-mobile"></a></li>
-							<li><a href="https://keartroth.github.io/assets/MichaelCarrollResume.pdf"
-									class="icon style3 fa-file" target="_blank"></a>
-							</li>
-						</ul>
-						<h1 class="myContactInfo"></h1>
-					</div>
+							<!-- Break -->
+							<div class="4u 12u$(small)">
+								<input type="radio" id="priority-low" name="message_priority" checked>
+								<label for="priority-low">Low Priority</label>
+							</div>
+							<div class="4u 12u$(small)">
+								<input type="radio" id="priority-normal" name="message_priority">
+								<label for="priority-normal">Normal Priority</label>
+							</div>
+							<div class="4u$ 12u$(small)">
+								<input type="radio" id="priority-high" name="message_priority">
+								<label for="priority-high">High Priority</label>
+							</div>
+							<!-- Break -->
+							<div class="6u 12u$(small)">
+								<input type="checkbox" id="copy" name="optional_cc">
+								<label for="copy">Email me a copy of this message</label>
+							</div>
+							<div class="6u$ 12u$(small)">
+								<input type="checkbox" id="human" name="human" required>
+								<label for="human">I am a human and not a robot</label>
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<textarea name="message" id="message" placeholder="Enter your message" rows="6"
+									required></textarea>
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="reset" value="Reset" class="alt" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</div>
+
 			</div>
 		</section>
 
@@ -287,7 +285,7 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="copyright">
-			<p>&copy; Michael Carroll. All rights reserved. Design: <a href="https://templated.co"
+			<p>&copy; Michael Carroll 2020. All rights reserved. Design: <a href="https://templated.co"
 					target="_blank">TEMPLATED.</p>
 		</div>
 	</footer>
